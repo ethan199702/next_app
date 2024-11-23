@@ -66,6 +66,7 @@ class Request {
     method: string,
     options: RequestOptions = {}
   ): Promise<any> {
+    debugger;
     const { url: fullUrl, options: requestInit } = this.requestInterceptor(
       url,
       {
@@ -104,7 +105,7 @@ class Request {
 export default Request;
 
 const baseRequest = new Request({
-  baseURL: "http://dev.entprotocol.io/api",
+  baseURL: "https://dev.entprotocol.io/api",
 });
 
 export { baseRequest };

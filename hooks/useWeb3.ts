@@ -3,14 +3,8 @@ import { ethers } from "ethers";
 
 const useWeb3 = () => {
   // 返回钱包数组，第一个钱包为主钱包
-  console.log(
-    useWallets,
-    typeof useWallets,
-    "useWallets=============================================="
-  );
 
   const [primaryWallet] = useWallets();
-  console.log(primaryWallet);
 
   // 获取当前钱包地址
   const { address } = useAccount();

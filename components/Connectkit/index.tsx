@@ -73,8 +73,6 @@ const config = createConfig({
 });
 
 const ParticleConnectkit = ({ children }: PropsWithChildren) => {
-  console.log(config, "config==============================================");
-  console.log("Rendering ParticleConnectkit...");
   return <ConnectKitProvider config={config}>{children}</ConnectKitProvider>;
 };
 
