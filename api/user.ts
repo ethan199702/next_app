@@ -1,9 +1,9 @@
 import { baseRequest } from "@/lib/utils/request";
 
-export const get_auth_wallet_nonce = (addtress: string) => {
-  return baseRequest.get("/user/auth_wallet_nonce", { params: { addtress } });
-};
+export const get_auth_wallet_nonce = (address: string) =>
+  baseRequest.get("/auth/wallet/nonce", { params: { address } });
 
-export const post_auth_wallet_login = (data: any) => {
-  return baseRequest.post("/user/auth_wallet_login", data);
-};
+export const post_auth_wallet_login = (data: any) =>
+  baseRequest.post("/auth/wallet/login", data);
+
+export const get_app_user_me = () => baseRequest.get("/app/user/me");

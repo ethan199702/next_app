@@ -1,3 +1,4 @@
+import Cookie from "js-cookie";
 interface RequestConfig {
   baseURL?: string; // 请求的基础 URL
   headers?: Record<string, string>; // 默认头部信息
@@ -26,11 +27,14 @@ class Request {
     const fullUrl = `${this.config.baseURL || ""}${url}${this.formatParams(
       options.params
     )}`;
+    const token = Cookie.get("Authorization");
+
     const requestInit: RequestInit = {
       ...options,
       headers: {
         ...this.config.headers,
         ...options.headers,
+        authorization: token || "",
       },
     };
 
@@ -45,6 +49,7 @@ class Request {
         new Error(`HTTP error! Status: ${response.status}`)
       );
     }
+
     return response.json();
   }
 
@@ -66,7 +71,6 @@ class Request {
     method: string,
     options: RequestOptions = {}
   ): Promise<any> {
-    debugger;
     const { url: fullUrl, options: requestInit } = this.requestInterceptor(
       url,
       {
@@ -77,7 +81,9 @@ class Request {
 
     try {
       const response = await fetch(fullUrl, requestInit);
-      return await this.responseInterceptor(response);
+
+      const res = await this.responseInterceptor(response);
+      return res?.data || {};
     } catch (error) {
       console.error("Request Error: ", error);
       throw error;
