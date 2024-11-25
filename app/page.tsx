@@ -1,3 +1,4 @@
+import TabBar from "components/TabBar";
 const PageHome = () => {
   return (
     <div className="w-full h-full">
@@ -6,6 +7,21 @@ const PageHome = () => {
           src="/image/main1.png"
           alt=""
           className="absolute inset-0 w-full h-full object-fill"
+        />
+      </div>
+      <div className="px-[240px] mt-[55px]">
+        <TabBar
+          title="Creations"
+          TabPanceList={[
+            {
+              label: "Trends",
+              value: "trends",
+            },
+            {
+              label: "Popular",
+              value: "popular",
+            },
+          ]}
         />
       </div>
     </div>
