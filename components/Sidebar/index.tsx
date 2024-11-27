@@ -9,7 +9,6 @@ import { formatAddress } from "lib/utils";
 const SideBar = () => {
   const { login } = useApi();
   const { userInfo } = useUserStore();
-  console.log(userInfo);
 
   const { setOpen } = useModal();
   const { address } = useAccount();

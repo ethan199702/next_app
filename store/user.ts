@@ -3,7 +3,7 @@ import { persist, devtools } from "zustand/middleware";
 
 interface IUserStore {
   userInfo: Record<string, any> | null;
-  lane: string;
+  lang: string;
   chainId: number | null;
   account: string | null;
   updateState?: (payload: Partial<IUserStore>) => void;
@@ -12,7 +12,7 @@ interface IUserStore {
 
 const initState: IUserStore = {
   userInfo: null,
-  lane: "zh",
+  lang: "zh-CN",
   chainId: null,
   account: null,
 };

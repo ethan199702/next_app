@@ -1,6 +1,13 @@
 "use client";
 
 import { FC, useState } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "ui/select";
 
 interface ITabBarProps {
   title: string;
@@ -24,6 +31,20 @@ const TabBar: FC<ITabBarProps> = ({ title, TabPanceList, SelectList }) => {
             </span>
           ))}
         </div>
+      </div>
+      <div>
+        <Select value={SelectList?.[0].value}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder=""></SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            {SelectList?.map((v) => (
+              <SelectItem key={v.value} value={v.value}>
+                {v.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
     </div>
   );
