@@ -1,5 +1,8 @@
+"use client";
+
 import TabBar from "components/TabBar";
 import BannerBox from "components/BannerBox";
+import HomeCount from "components/HomeCount";
 
 const PageHome = () => {
   return (
@@ -7,13 +10,7 @@ const PageHome = () => {
       <div className="w-full h-[902px] relative">
         <BannerBox type="DISCOVER_PRIMARY"></BannerBox>
       </div>
-      {/* <div>
-        <img
-          src="/image/main1.png"
-          alt=""
-          className="absolute inset-0 w-full h-full object-fill"
-        />
-      </div> */}
+
       <div className="px-[240px] mt-[55px]">
         <TabBar
           title="Creations"
@@ -41,11 +38,12 @@ const PageHome = () => {
               label: "music",
             },
             {
-              value: "VODEO",
+              value: "VIDEO",
               label: "video",
             },
           ]}
         />
+        <HomeCount></HomeCount>
       </div>
     </div>
   );
