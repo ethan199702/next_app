@@ -1,11 +1,20 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 
 interface IProps {
-  children?: ReactNode;
+  children?: (data: any[]) => ReactNode;
+  getList: (params: any) => Promise<any>;
+  params: Record<string, any>;
 }
 
-const HomeCoune: FC<IProps> = ({ children }) => {
-  return <>{children}</>;
+const HomeCount: FC<IProps> = ({ children, getList, params }) => {
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    getList(params).then((res) => {
+      setList(res?.list || []);
+    });
+  }, []);
+  return <>{children && children(list)}</>;
 };
 
-export default HomeCoune;
+export default HomeCount;

@@ -1,7 +1,7 @@
 "use client";
 import { FC, useEffect, useState } from "react";
 
-import { noAuthBannerList } from "@/api/user";
+import { noAuthBannerList } from "@/api/nft";
 import useUserStore from "store/user";
 import BannerImage from "components/Banner";
 

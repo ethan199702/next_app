@@ -12,7 +12,8 @@ interface IUserStore {
 
 const initState: IUserStore = {
   userInfo: null,
-  lang: "zh-CN",
+  // lang: "zh-CN",
+  lang: "en",
   chainId: null,
   account: null,
 };

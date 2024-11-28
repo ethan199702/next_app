@@ -1,10 +1,21 @@
 "use client";
 
+import { useState } from "react";
+
 import TabBar from "components/TabBar";
 import BannerBox from "components/BannerBox";
 import HomeCount from "components/HomeCount";
+import CardBox from "components/CardBox";
+
+import { noAuthNftList } from "api/nft";
 
 const PageHome = () => {
+  const [nftParams] = useState({
+    page: 0,
+    size: 8,
+    orderBy: "id desc",
+    status: -1,
+  });
   return (
     <div className="w-full h-full">
       <div className="w-full h-[902px] relative">
@@ -43,7 +54,9 @@ const PageHome = () => {
             },
           ]}
         />
-        <HomeCount></HomeCount>
+        <HomeCount getList={noAuthNftList} params={nftParams}>
+          {(data) => <CardBox list={data}></CardBox>}
+        </HomeCount>
       </div>
     </div>
   );
