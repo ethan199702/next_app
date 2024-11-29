@@ -14,7 +14,11 @@ const BannerImage: FC<BannerImageProps> = ({ list }) => {
         <CarouselContent>
           {list.map((v) => (
             <CarouselItem key={v.id}>
-              <img src={v.imageUrl} alt={v.id} />
+              <img
+                src={v.imageUrl}
+                alt={v.id}
+                className="w-full h-full bg-cover bg-current"
+              />
             </CarouselItem>
           ))}
         </CarouselContent>

@@ -13,7 +13,7 @@ const PageHome = () => {
   const [nftParams] = useState({
     page: 0,
     size: 8,
-    orderBy: "id desc",
+    orderBy: "vote_num desc",
     status: -1,
   });
   return (

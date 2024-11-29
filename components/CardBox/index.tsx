@@ -9,9 +9,9 @@ const CardBox: FC<Iprops> = ({ list }) => {
   console.log(list);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-[24px] gap-x-[40px]">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-[24px] gap-x-[40px] mt-6">
       {list?.map((v) => (
-        <CardItem key={v.id} />
+        <CardItem key={v.id} bgImage={v.background} />
       ))}
     </div>
   );
